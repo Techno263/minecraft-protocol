@@ -1,0 +1,565 @@
+[
+    {
+        "name": "Handshake",
+        "id": "0x00",
+        "state": "Handshaking",
+        "bound_to": "Server",
+        "fields": [
+            {
+                "name": "Protocol Version",
+                "type": { 
+                    "type": "VarInt"
+                }
+            },
+            {
+                "name": "Server Address",
+                "type": {
+                    "type": "String (255)"
+                }
+            },
+            {
+                "name": "Server Port",
+                "type": {
+                    "type": "Unsigned Short"
+                }
+            },
+            {
+                "name": "Next State",
+                "type": {
+                    "type": "VarInt Enum"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Legacy Server List Ping",
+        "id": "0xfe",
+        "state": "Handshaking",
+        "bound_to": "Server",
+        "fields": [
+            {
+                "name": "Payload",
+                "type": {
+                    "type": "Unsigned Byte"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Response",
+        "id": "0x00",
+        "state": "Status",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Response",
+                "type": {
+                    "type": "String (32767)"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Pong",
+        "id": "0x01",
+        "state": "Status",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Payload",
+                "type": {
+                    "type": "Login"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Request",
+        "id": "0x00",
+        "state": "Status",
+        "bound_to": "Server",
+        "fields": []
+    },
+    {
+        "name": "Ping",
+        "id": "0x01",
+        "state": "Status",
+        "bound_to": "Server",
+        "fields": [
+            {
+                "name": "Payload",
+                "type": {
+                    "type": "Login"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Disconnect (login)",
+        "id": "0x00",
+        "state": "Login",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Reason",
+                "type": {
+                    "type": "Chat"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Encryption Request",
+        "id": "0x01",
+        "state": "Login",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Server ID",
+                "type": {
+                    "type": "String (20)"
+                }
+            },
+            {
+                "name": "Public Key",
+                "type": {
+                    "type": "Array",
+                    "options": {
+                        "type": "Byte",
+                        "count_type": "VarInt"
+                    }
+                }
+            },
+            {
+                "name": "Verify Token",
+                "type": {
+                    "type": "Array",
+                    "options": {
+                        "type": "Byte",
+                        "count_type": "VarInt"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "Login Success",
+        "id": "0x02",
+        "state": "Login",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "UUID",
+                "type": {
+                    "type": "UUID"
+                }
+            },
+            {
+                "name": "Username",
+                "type": {
+                    "type": "String (16)"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Set Compression",
+        "id": "0x03",
+        "state": "Login",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Threshold",
+                "type": {
+                    "type": "VarInt"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Login Plugin Request",
+        "id": "0x04",
+        "state": "Login",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Message ID",
+                "type": {
+                    "type": "VarInt"
+                }
+            },
+            {
+                "name": "Channel",
+                "type": {
+                    "type": "Identifier"
+                }
+            },
+            {
+                "name": "Data",
+                "type": {
+                    "type": "Array",
+                    "options": {
+                        "type": "Byte",
+                        "count_type": null
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "Login Start",
+        "id": "0x00",
+        "state": "Login",
+        "bound_to": "Server",
+        "fields": [
+            {
+                "name": "Shared Secret",
+                "type": {
+                    "type": "Array",
+                    "options": {
+                        "type": "Byte",
+                        "count_type": "VarInt"
+                    }
+                }
+            },
+            {
+                "name": "Verify Token",
+                "type": {
+                    "type": "Array",
+                    "options": {
+                        "type": "Byte",
+                        "count_type": "VarInt"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "Encryption Response",
+        "id": "0x01",
+        "state": "Login",
+        "bound_to": "Server",
+        "fields": [
+            {
+                "name": "Message ID",
+                "type": {
+                    "type": "VarInt"
+                }
+            },
+            {
+                "name": "Successful",
+                "type": {
+                    "type": "Bool"
+                }
+            },
+            {
+                "name": "Data",
+                "type": {
+                    "type": "Array",
+                    "options": {
+                        "type": "Byte",
+                        "count_type": null
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "Spawn Entity",
+        "id": "0x00",
+        "state": "Play",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Entity ID",
+                "type": {
+                    "type": "VarInt"
+                }
+            },
+            {
+                "name": "Object UUID",
+                "type": {
+                    "type": "UUID"
+                }
+            },
+            {
+                "name": "Type",
+                "type": {
+                    "type": "VarInt"
+                }
+            },
+            {
+                "name": "X",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Y",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Z",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Pitch",
+                "type": {
+                    "type": "Angle"
+                }
+            },
+            {
+                "name": "Yaw",
+                "type": {
+                    "type": "Angle"
+                }
+            },
+            {
+                "name": "Data",
+                "type": {
+                    "type": "Int"
+                }
+            },
+            {
+                "name": "Velocity X",
+                "type": {
+                    "type": "Short"
+                }
+            },
+            {
+                "name": "Velocity Y",
+                "type": {
+                    "type": "Short"
+                }
+            },
+            {
+                "name": "Velocity Z",
+                "type": {
+                    "type": "Short"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Spawn Experience Orb",
+        "id": "0x01",
+        "state": "Play",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Entity ID",
+                "type": {
+                    "type": "VarInt"
+                }
+            },
+            {
+                "name": "X",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Y",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Z",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Count",
+                "type": {
+                    "type": "Short"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Spawn Living Entity",
+        "id": "0x02",
+        "state": "Play",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "Entity ID",
+                "type": {
+                    "type": "VarInt"
+                }
+            },
+            {
+                "name": "Entity UUID",
+                "type": {
+                    "type": "UUID"
+                }
+            },
+            {
+                "name": "Type",
+                "type": {
+                    "type": "VarInt"
+                }
+            },
+            {
+                "name": "X",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Y",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Z",
+                "type": {
+                    "type": "Double"
+                }
+            },
+            {
+                "name": "Yaw",
+                "type": {
+                    "type": "Angle"
+                }
+            },
+            {
+                "name": "Pitch",
+                "type": {
+                    "type": "Angle"
+                }
+            },
+            {
+                "name": "Head Pitch",
+                "type": {
+                    "type": "Angle"
+                }
+            },
+            {
+                "name": "Velocity X",
+                "type": {
+                    "type": "Short"
+                }
+            },
+            {
+                "name": "Velocity Y",
+                "type": {
+                    "type": "Short"
+                }
+            },
+            {
+                "name": "Velocity Z",
+                "type": {
+                    "type": "Short"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Boss Bar",
+        "id": "0x0c",
+        "state": "Play",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "UUID",
+                "type": {
+                    "type": "UUID"
+                }
+            },
+            {
+                "name": "Action",
+                "type": {
+                    "type": "VarInt Enum"
+                }
+            },
+            {
+                "name": null,
+                "type": {
+                    "type": "Switch",
+                    "switch_type": "VarInt Enum",
+                    "case": {
+                        "0": [
+                            {
+                                "name": "Title",
+                                "type": {
+                                    "type": "Chat"
+                                }
+                            },
+                            {
+                                "name": "Health",
+                                "type": {
+                                    "type": "Float"
+                                }
+                            },
+                            {
+                                "name": "Color",
+                                "type": {
+                                    "type": "VarInt Enum"
+                                }
+                            },
+                            {
+                                "name": "Division",
+                                "type": {
+                                    "type": "VarInt Enum"
+                                }
+                            },
+                            {
+                                "name": "Flags",
+                                "type": {
+                                    "type": "Unsigned Byte"
+                                }
+                            }
+                        ],
+                        "1": [],
+                        "2": [
+                            {
+                                "name": "Health",
+                                "type": {
+                                    "type": "Float"
+                                }
+                            }
+                        ],
+                        "3": [
+                            {
+                                "name": "Title",
+                                "type": {
+                                    "type": "Chat"
+                                }
+                            }
+                        ],
+                        "4": [
+                            {
+                                "name": "Color",
+                                "type": {
+                                    "type": "VarInt Enum"
+                                }
+                            },
+                            {
+                                "name": "Dividers",
+                                "type": {
+                                    "type": "VarInt Enum"
+                                }
+                            }
+                        ],
+                        "5": [
+                            {
+                                "name": "Flags",
+                                "type": {
+                                    "type": "Unsigned Byte"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+]
