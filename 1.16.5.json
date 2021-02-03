@@ -7,7 +7,7 @@
         "fields": [
             {
                 "name": "Protocol Version",
-                "type": { 
+                "type": {
                     "type": "VarInt"
                 }
             },
@@ -20,7 +20,7 @@
             {
                 "name": "Server Port",
                 "type": {
-                    "type": "Unsigned Short"
+                    "type": "UShort"
                 }
             },
             {
@@ -40,7 +40,7 @@
             {
                 "name": "Payload",
                 "type": {
-                    "type": "Unsigned Byte"
+                    "type": "UByte"
                 }
             }
         ]
@@ -124,9 +124,9 @@
                 "name": "Public Key",
                 "type": {
                     "type": "Array",
-                    "options": {
-                        "type": "Byte",
-                        "count_type": "VarInt"
+                    "count_type": "VarInt",
+                    "element": {
+                        "type": "Byte"
                     }
                 }
             },
@@ -134,9 +134,9 @@
                 "name": "Verify Token",
                 "type": {
                     "type": "Array",
-                    "options": {
-                        "type": "Byte",
-                        "count_type": "VarInt"
+                    "count_type": "VarInt",
+                    "element": {
+                        "type": "Byte"
                     }
                 }
             }
@@ -198,9 +198,9 @@
                 "name": "Data",
                 "type": {
                     "type": "Array",
-                    "options": {
-                        "type": "Byte",
-                        "count_type": null
+                    "count_type": null,
+                    "element": {
+                        "type": "Byte"
                     }
                 }
             }
@@ -216,9 +216,9 @@
                 "name": "Shared Secret",
                 "type": {
                     "type": "Array",
-                    "options": {
-                        "type": "Byte",
-                        "count_type": "VarInt"
+                    "count_type": "VarInt",
+                    "element": {
+                        "type": "Byte"
                     }
                 }
             },
@@ -226,9 +226,9 @@
                 "name": "Verify Token",
                 "type": {
                     "type": "Array",
-                    "options": {
-                        "type": "Byte",
-                        "count_type": "VarInt"
+                    "count_type": "VarInt",
+                    "element": {
+                        "type": "Byte"
                     }
                 }
             }
@@ -256,9 +256,9 @@
                 "name": "Data",
                 "type": {
                     "type": "Array",
-                    "options": {
-                        "type": "Byte",
-                        "count_type": null
+                    "count_type": null,
+                    "element": {
+                        "type": "Byte"
                     }
                 }
             }
@@ -514,7 +514,7 @@
                             {
                                 "name": "Flags",
                                 "type": {
-                                    "type": "Unsigned Byte"
+                                    "type": "UByte"
                                 }
                             }
                         ],
@@ -553,7 +553,62 @@
                             {
                                 "name": "Flags",
                                 "type": {
-                                    "type": "Unsigned Byte"
+                                    "type": "UByte"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "Tab-Complete (clientbound)",
+        "id": "0x0f",
+        "state": "Play",
+        "bound_to": "Client",
+        "fields": [
+            {
+                "name": "ID",
+                "type": {
+                    "type_name": "VarInt"
+                }
+            },
+            {
+                "name": "Start",
+                "type": {
+                    "type_name": "VarInt"
+                }
+            },
+            {
+                "name": "Length",
+                "type": {
+                    "type_name": "VarInt"
+                }
+            },
+            {
+                "name": "Matches",
+                "type": {
+                    "type_name": "Array",
+                    "count_type": {
+                        "type_name": "VarInt"
+                    },
+                    "element": {
+                        "type_name": "Compound",
+                        "compound_type": [
+                            {
+                                "name": "Match",
+                                "type": {
+                                    "type_name": "String"
+                                }
+                            },
+                            {
+                                "name": "Tooltip",
+                                "type": {
+                                    "type_name": "Option",
+                                    "option_type": {
+                                        "type_name": "Chat"
+                                    }
                                 }
                             }
                         ]

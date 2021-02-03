@@ -4,9 +4,9 @@
 | --- | --- |
 | Boolean | 1 |
 | Byte | 1 |
-| Unsigned Byte | 1 |
+| UByte | 1 |
 | Short | 2 |
-| Unsigned Short | 2 |
+| UShort | 2 |
 | Int | 4 |
 | Long | 8 |
 | Float | 4 |
@@ -22,56 +22,119 @@
 | Position | 8 |
 | Angle | 1 |
 | UUID | 16 |
+| Array | Varies |
+| Switch | Varies |
+| Option | ≥ 1, Varies |
+| Compound | Varies |
+
 | Optional X | 0 or size of X |
 | Array of X | count * size of X |
 | X Enum | size of X |
 | Byte Array | Varies |
 
-
-
-# Data Structures
-
-## Array
+### Basic Datatype
 
 ```json
 {
-    "type": "Array",
-    "options": {
-        "type": "type",
-        "count_type": "type"
+    "name": "<object_name>",
+    "type": {
+        "type_name": "<type_name>"
     }
 }
 ```
 
-## Switch
+## Data Structures
+
+### Array
 
 ```json
 {
-    "type": "Switch",
-    "switch_type": "type",
-    "case": {
-        "value1": [
-            {
-                "name": "field1_name",
+    "name": "<object_name>",
+    "type": {
+        "type_name": "Array",
+        "count_type": {
+            "type_name": "<count_type>"
+        },
+        "element": {
+            "type_name": "<arr_element_type>"
+        }
+    }
+}
+```
+
+### Switch
+
+```json
+{
+    "name": "<object_name>",
+    "type": {
+        "type_name": "Switch",
+        "switch_type": {
+            "type_name": "<switch_type>"
+        },
+        "case": {
+            "case1_value": [
+                {
+                    "name": "<field1_name>",
+                    "type": {
+                        "type_name": "<field1_type>"
+                    }
+                },
+                {
+                    "name": "<field2_name>",
+                    "type": {
+                        "type_name": "<field2_type>"
+                    }
+                }
+            ],
+            "case2_value": [
+                {
+                    "name": "<field1_name>",
+                    "type": {
+                        "type_name": "<field1_type>"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+### Option
+
+```json
+{
+    "name": "<object_name>",
+    "type": {
+        "type_name": "Option",
+        "option_type": {
+            "type_name": "<optional_type>"
+        }
+    }
+}
+```
+
+### Compound
+
+```json
+{
+    "name": "<object_name>",
+    "type": {
+        "type_name": "Compound",
+        "compound_type": [
+            { 
+                "name": "<field1_name>",
                 "type": {
-                    "type": "field1_type"
+                    "type_name": "<field1_type>"
                 }
             },
             {
-                "name": "field2_name",
+                "name": "<field2_name>",
                 "type": {
-                    "type": "field2_type"
-                }
-            }
-        ],
-        "value2": [
-            {
-                "name": "field1_name",
-                "type": {
-                    "type": "field1_type"
+                    "type_name": "<field2_type>"
                 }
             }
         ]
     }
 }
-```
+````
