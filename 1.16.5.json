@@ -11,7 +11,10 @@
             },
             {
                 "name": "Server Address",
-                "type": "String (255)"
+                "type": "String",
+                "options": {
+                    "max_length": 255
+                }
             },
             {
                 "name": "Server Port",
@@ -19,7 +22,10 @@
             },
             {
                 "name": "Next State",
-                "type": "VarInt Enum"
+                "type": "VarInt",
+                "options": {
+                    "enum": "Handshaking Next State"
+                }
             }
         ]
     },
@@ -43,7 +49,10 @@
         "fields": [
             {
                 "name": "Response",
-                "type": "String (32767)"
+                "type": "String",
+                "options": {
+                    "max_length": 32767
+                }
             }
         ]
     },
@@ -98,7 +107,10 @@
         "fields": [
             {
                 "name": "Server ID",
-                "type": "String (20)"
+                "type": "String",
+                "options": {
+                    "max_length": 20
+                }
             },
             {
                 "name": "Public Key",
@@ -138,7 +150,10 @@
             },
             {
                 "name": "Username",
-                "type": "String (16)"
+                "type": "String",
+                "options": {
+                    "max_length": 16
+                }
             }
         ]
     },
@@ -393,15 +408,14 @@
                 "type": "UUID"
             },
             {
-                "name": "Action",
-                "type": "VarInt Enum"
-            },
-            {
                 "name": null,
                 "type": "Switch",
                 "options": {
                     "switch": {
-                        "type": "VarInt Enum"
+                        "type": "VarInt",
+                        "options": {
+                            "enum": "Boss Bar Color ID"
+                        }
                     },
                     "case": {
                         "0": [
@@ -415,11 +429,17 @@
                             },
                             {
                                 "name": "Color",
-                                "type": "VarInt Enum"
+                                "type": "VarInt",
+                                "options": {
+                                    "enum": "Boss Bar Color ID"
+                                }
                             },
                             {
                                 "name": "Division",
-                                "type": "VarInt Enum"
+                                "type": "VarInt",
+                                "options": {
+                                    "enum": "Boss Bar Division Type"
+                                }
                             },
                             {
                                 "name": "Flags",
@@ -442,11 +462,17 @@
                         "4": [
                             {
                                 "name": "Color",
-                                "type": "VarInt Enum"
+                                "type": "VarInt",
+                                "options": {
+                                    "enum": "Boss Bar Color ID"
+                                }
                             },
                             {
                                 "name": "Dividers",
-                                "type": "VarInt Enum"
+                                "type": "VarInt",
+                                "options": {
+                                    "enum":"Boss Bar Division Type"
+                                }
                             }
                         ],
                         "5": [

@@ -57,6 +57,36 @@
 }
 ```
 
+## Strings
+
+Some strings have a max length associated with them. If a string has a max length the key `options.max_length` will be set with the maximum number of characters in the string
+
+Example:
+```json
+{
+    "name": "Server Address",
+    "type": "String",
+    "options": {
+        "max_length": 255
+    }
+}
+```
+
+## Enum
+
+Some numbers represent enums. Enums will have the key `options.enum` set with the name of the corresponding enum.
+
+Example:
+```json
+{
+    "name": "Next State",
+    "type": "VarInt",
+    "options": {
+        "enum": "Handshaking Next State"
+    }
+}
+```
+
 # Data Structures
 
 ## Array
