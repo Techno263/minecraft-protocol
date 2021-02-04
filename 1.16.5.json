@@ -408,7 +408,7 @@
                 "type": "UUID"
             },
             {
-                "name": null,
+                "name": "Action",
                 "type": "Switch",
                 "options": {
                     "switch": {
