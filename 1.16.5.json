@@ -7,27 +7,19 @@
         "fields": [
             {
                 "name": "Protocol Version",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "Server Address",
-                "type": {
-                    "type": "String (255)"
-                }
+                "type": "String (255)"
             },
             {
                 "name": "Server Port",
-                "type": {
-                    "type": "UShort"
-                }
+                "type": "UShort"
             },
             {
                 "name": "Next State",
-                "type": {
-                    "type": "VarInt Enum"
-                }
+                "type": "VarInt Enum"
             }
         ]
     },
@@ -39,9 +31,7 @@
         "fields": [
             {
                 "name": "Payload",
-                "type": {
-                    "type": "UByte"
-                }
+                "type": "UByte"
             }
         ]
     },
@@ -53,9 +43,7 @@
         "fields": [
             {
                 "name": "Response",
-                "type": {
-                    "type": "String (32767)"
-                }
+                "type": "String (32767)"
             }
         ]
     },
@@ -67,9 +55,7 @@
         "fields": [
             {
                 "name": "Payload",
-                "type": {
-                    "type": "Login"
-                }
+                "type": "Login"
             }
         ]
     },
@@ -88,9 +74,7 @@
         "fields": [
             {
                 "name": "Payload",
-                "type": {
-                    "type": "Login"
-                }
+                "type": "Login"
             }
         ]
     },
@@ -102,9 +86,7 @@
         "fields": [
             {
                 "name": "Reason",
-                "type": {
-                    "type": "Chat"
-                }
+                "type": "Chat"
             }
         ]
     },
@@ -116,15 +98,15 @@
         "fields": [
             {
                 "name": "Server ID",
-                "type": {
-                    "type": "String (20)"
-                }
+                "type": "String (20)"
             },
             {
                 "name": "Public Key",
-                "type": {
-                    "type": "Array",
-                    "count_type": "VarInt",
+                "type": "Array",
+                "options": {
+                    "count": {
+                        "type": "VarInt"
+                    },
                     "element": {
                         "type": "Byte"
                     }
@@ -132,9 +114,11 @@
             },
             {
                 "name": "Verify Token",
-                "type": {
-                    "type": "Array",
-                    "count_type": "VarInt",
+                "type": "Array",
+                "options": {
+                    "count": {
+                        "type": "VarInt"
+                    },
                     "element": {
                         "type": "Byte"
                     }
@@ -150,15 +134,11 @@
         "fields": [
             {
                 "name": "UUID",
-                "type": {
-                    "type": "UUID"
-                }
+                "type": "UUID"
             },
             {
                 "name": "Username",
-                "type": {
-                    "type": "String (16)"
-                }
+                "type": "String (16)"
             }
         ]
     },
@@ -170,9 +150,7 @@
         "fields": [
             {
                 "name": "Threshold",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             }
         ]
     },
@@ -184,21 +162,19 @@
         "fields": [
             {
                 "name": "Message ID",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "Channel",
-                "type": {
-                    "type": "Identifier"
-                }
+                "type": "Identifier"
             },
             {
                 "name": "Data",
-                "type": {
-                    "type": "Array",
-                    "count_type": null,
+                "type": "Array",
+                "options": {
+                    "count": {
+                        "type": null
+                    },
                     "element": {
                         "type": "Byte"
                     }
@@ -214,9 +190,11 @@
         "fields": [
             {
                 "name": "Shared Secret",
-                "type": {
-                    "type": "Array",
-                    "count_type": "VarInt",
+                "type": "Array",
+                "options": {
+                    "count": {
+                        "type": "VarInt"
+                    },
                     "element": {
                         "type": "Byte"
                     }
@@ -224,9 +202,11 @@
             },
             {
                 "name": "Verify Token",
-                "type": {
-                    "type": "Array",
-                    "count_type": "VarInt",
+                "type": "Array",
+                "options": {
+                    "count": {
+                        "type": "VarInt"
+                    },
                     "element": {
                         "type": "Byte"
                     }
@@ -242,21 +222,19 @@
         "fields": [
             {
                 "name": "Message ID",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "Successful",
-                "type": {
-                    "type": "Bool"
-                }
+                "type": "Bool"
             },
             {
                 "name": "Data",
-                "type": {
-                    "type": "Array",
-                    "count_type": null,
+                "type": "Array",
+                "options": {
+                    "count": {
+                        "type": null
+                    },
                     "element": {
                         "type": "Byte"
                     }
@@ -272,75 +250,51 @@
         "fields": [
             {
                 "name": "Entity ID",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "Object UUID",
-                "type": {
-                    "type": "UUID"
-                }
+                "type": "UUID"
             },
             {
                 "name": "Type",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "X",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Y",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Z",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Pitch",
-                "type": {
-                    "type": "Angle"
-                }
+                "type": "Angle"
             },
             {
                 "name": "Yaw",
-                "type": {
-                    "type": "Angle"
-                }
+                "type": "Angle"
             },
             {
                 "name": "Data",
-                "type": {
-                    "type": "Int"
-                }
+                "type": "Int"
             },
             {
                 "name": "Velocity X",
-                "type": {
-                    "type": "Short"
-                }
+                "type": "Short"
             },
             {
                 "name": "Velocity Y",
-                "type": {
-                    "type": "Short"
-                }
+                "type": "Short"
             },
             {
                 "name": "Velocity Z",
-                "type": {
-                    "type": "Short"
-                }
+                "type": "Short"
             }
         ]
     },
@@ -352,33 +306,23 @@
         "fields": [
             {
                 "name": "Entity ID",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "X",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Y",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Z",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Count",
-                "type": {
-                    "type": "Short"
-                }
+                "type": "Short"
             }
         ]
     },
@@ -390,75 +334,51 @@
         "fields": [
             {
                 "name": "Entity ID",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "Entity UUID",
-                "type": {
-                    "type": "UUID"
-                }
+                "type": "UUID"
             },
             {
                 "name": "Type",
-                "type": {
-                    "type": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "X",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Y",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Z",
-                "type": {
-                    "type": "Double"
-                }
+                "type": "Double"
             },
             {
                 "name": "Yaw",
-                "type": {
-                    "type": "Angle"
-                }
+                "type": "Angle"
             },
             {
                 "name": "Pitch",
-                "type": {
-                    "type": "Angle"
-                }
+                "type": "Angle"
             },
             {
                 "name": "Head Pitch",
-                "type": {
-                    "type": "Angle"
-                }
+                "type": "Angle"
             },
             {
                 "name": "Velocity X",
-                "type": {
-                    "type": "Short"
-                }
+                "type": "Short"
             },
             {
                 "name": "Velocity Y",
-                "type": {
-                    "type": "Short"
-                }
+                "type": "Short"
             },
             {
                 "name": "Velocity Z",
-                "type": {
-                    "type": "Short"
-                }
+                "type": "Short"
             }
         ]
     },
@@ -470,91 +390,69 @@
         "fields": [
             {
                 "name": "UUID",
-                "type": {
-                    "type": "UUID"
-                }
+                "type": "UUID"
             },
             {
                 "name": "Action",
-                "type": {
-                    "type": "VarInt Enum"
-                }
+                "type": "VarInt Enum"
             },
             {
                 "name": null,
-                "type": {
-                    "type": "Switch",
-                    "switch_type": "VarInt Enum",
+                "type": "Switch",
+                "options": {
+                    "switch": {
+                        "type": "VarInt Enum"
+                    },
                     "case": {
                         "0": [
                             {
                                 "name": "Title",
-                                "type": {
-                                    "type": "Chat"
-                                }
+                                "type": "Chat"
                             },
                             {
                                 "name": "Health",
-                                "type": {
-                                    "type": "Float"
-                                }
+                                "type": "Float"
                             },
                             {
                                 "name": "Color",
-                                "type": {
-                                    "type": "VarInt Enum"
-                                }
+                                "type": "VarInt Enum"
                             },
                             {
                                 "name": "Division",
-                                "type": {
-                                    "type": "VarInt Enum"
-                                }
+                                "type": "VarInt Enum"
                             },
                             {
                                 "name": "Flags",
-                                "type": {
-                                    "type": "UByte"
-                                }
+                                "type": "UByte"
                             }
                         ],
                         "1": [],
                         "2": [
                             {
                                 "name": "Health",
-                                "type": {
-                                    "type": "Float"
-                                }
+                                "type": "Float"
                             }
                         ],
                         "3": [
                             {
                                 "name": "Title",
-                                "type": {
-                                    "type": "Chat"
-                                }
+                                "type": "Chat"
                             }
                         ],
                         "4": [
                             {
                                 "name": "Color",
-                                "type": {
-                                    "type": "VarInt Enum"
-                                }
+                                "type": "VarInt Enum"
                             },
                             {
                                 "name": "Dividers",
-                                "type": {
-                                    "type": "VarInt Enum"
-                                }
+                                "type": "VarInt Enum"
                             }
                         ],
                         "5": [
                             {
                                 "name": "Flags",
-                                "type": {
-                                    "type": "UByte"
-                                }
+                                "type": "UByte"
                             }
                         ]
                     }
@@ -570,48 +468,42 @@
         "fields": [
             {
                 "name": "ID",
-                "type": {
-                    "type_name": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "Start",
-                "type": {
-                    "type_name": "VarInt"
-                }
+                "type":  "VarInt"
             },
             {
                 "name": "Length",
-                "type": {
-                    "type_name": "VarInt"
-                }
+                "type": "VarInt"
             },
             {
                 "name": "Matches",
-                "type": {
-                    "type_name": "Array",
-                    "count_type": {
-                        "type_name": "VarInt"
+                "type": "Array",
+                "options": {
+                    "count": {
+                        "type": "VarInt"
                     },
                     "element": {
-                        "type_name": "Compound",
-                        "compound_type": [
-                            {
-                                "name": "Match",
-                                "type": {
-                                    "type_name": "String"
-                                }
-                            },
-                            {
-                                "name": "Tooltip",
-                                "type": {
-                                    "type_name": "Option",
-                                    "option_type": {
-                                        "type_name": "Chat"
+                        "type": "Compound",
+                        "options": {
+                            "fields": [
+                                {
+                                    "name": "Match",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "Tooltip",
+                                    "type": "Option",
+                                    "options": {
+                                        "optional": {
+                                            "type": "Chat"
+                                        }
                                     }
                                 }
-                            }
-                        ]
+                            ]
+                        }
                     }
                 }
             }

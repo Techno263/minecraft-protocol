@@ -32,66 +32,111 @@
 | X Enum | size of X |
 | Byte Array | Varies |
 
-### Basic Datatype
+## Basic Datatype
+
+### Required Keys
+
+| Name |
+| --- |
+| `type` |
+
+### Optional Keys
+
+| Name | Default Value |
+| --- | --- |
+| `name` | `None` |
+| `options` | `{}` |
 
 ```json
 {
     "name": "<object_name>",
-    "type": {
-        "type_name": "<type_name>"
+    "type": "<type_name>",
+    "options": {
+        ...
     }
 }
 ```
 
-## Data Structures
+# Data Structures
 
-### Array
+## Array
+
+### Required Keys
+
+| Key |
+| --- |
+| `type` |
+| `options.count.type` |
+| `options.element.type` |
+
+### Optional Keys
+
+| Key | Default Value |
+| --- | --- |
+| `name` | `None` |
 
 ```json
 {
     "name": "<object_name>",
-    "type": {
-        "type_name": "Array",
-        "count_type": {
-            "type_name": "<count_type>"
+    "type": "Array",
+    "options": {
+        "count": {
+            "type": "<count_type>"
         },
         "element": {
-            "type_name": "<arr_element_type>"
+            "type": "<arr_element_type>"
         }
     }
 }
 ```
 
-### Switch
+## Switch
+
+### Required Keys
+
+| Key |
+| --- |
+| `type` |
+| `options.switch.type` |
+| `options.case` |
+
+### Optional Keys
+
+| Key | Default Value |
+| --- | --- |
+| `name` | `None` |
 
 ```json
 {
     "name": "<object_name>",
-    "type": {
-        "type_name": "Switch",
-        "switch_type": {
-            "type_name": "<switch_type>"
+    "type": "Switch",
+    "options": {
+        "switch": {
+            "type": "<switch_type>"
         },
         "case": {
-            "case1_value": [
+            "<case1_value>": [
                 {
                     "name": "<field1_name>",
-                    "type": {
-                        "type_name": "<field1_type>"
+                    "type": "<field1_type>",
+                    "options": {
+                        ...
                     }
                 },
                 {
                     "name": "<field2_name>",
-                    "type": {
-                        "type_name": "<field2_type>"
+                    "type": "<field2_type>",
+                    "options": {
+                        ...
                     }
                 }
             ],
-            "case2_value": [
+            "<case2_value>": [
                 {
                     "name": "<field1_name>",
-                    "type": {
-                        "type_name": "<field1_type>"
+                    "type": "<field1_type>",
+                    "options": {
+                        ...
                     }
                 }
             ]
@@ -100,41 +145,69 @@
 }
 ```
 
-### Option
+## Option
+
+### Required Keys
+
+| Key |
+| --- |
+| `type` |
+| `options.optional.type` |
+
+### Optional Keys
+
+| Key | Default Value |
+| --- | --- |
+| `name` | `None` |
 
 ```json
 {
     "name": "<object_name>",
-    "type": {
-        "type_name": "Option",
-        "option_type": {
-            "type_name": "<optional_type>"
+    "type": "Option",
+    "options": {
+        "optional": {
+            "type": "<optional_type>"
         }
     }
 }
 ```
 
-### Compound
+## Compound
+
+### Required Keys
+
+| Key |
+| --- |
+| `type` |
+| `options.fields` |
+
+### Optional Keys
+
+| Key | Default Value |
+| --- | --- |
+| `name` | `None` |
 
 ```json
 {
     "name": "<object_name>",
-    "type": {
-        "type_name": "Compound",
-        "compound_type": [
-            { 
+    "type": "Compound",
+    "options": {
+        "fields": [
+            {
                 "name": "<field1_name>",
-                "type": {
-                    "type_name": "<field1_type>"
+                "type": "<field1_type>",
+                "options": {
+                    ...
                 }
             },
             {
                 "name": "<field2_name>",
-                "type": {
-                    "type_name": "<field2_type>"
+                "type": "<field2_type>",
+                "options": {
+                    ...
                 }
             }
         ]
     }
 }
-````
+```
