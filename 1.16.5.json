@@ -64,7 +64,7 @@
         "fields": [
             {
                 "name": "Payload",
-                "type": "Login"
+                "type": "Long"
             }
         ]
     },
