@@ -144,33 +144,39 @@ Example:
         "switch": {
             "type": "<switch_type>"
         },
-        "case": {
-            "<case1_value>": [
-                {
-                    "name": "<field1_name>",
-                    "type": "<field1_type>",
-                    "options": {
-                        ...
+        "case": [
+            {
+                "value": "<case1_value>",
+                "fields": [
+                    {
+                        "name": "<field1_name>",
+                        "type": "<field1_type>",
+                        "options": {
+                            ...
+                        }
+                    },
+                    {
+                        "name": "<field2_name>",
+                        "type": "<field2_type>",
+                        "options": {
+                            ...
+                        }
                     }
-                },
-                {
-                    "name": "<field2_name>",
-                    "type": "<field2_type>",
-                    "options": {
-                        ...
+                ]
+            },
+            {
+                "value": "<case2_value>",
+                "fields": [
+                    {
+                        "name": "<field1_name>",
+                        "type": "<field1_type>",
+                        "options": {
+                            ...
+                        }
                     }
-                }
-            ],
-            "<case2_value>": [
-                {
-                    "name": "<field1_name>",
-                    "type": "<field1_type>",
-                    "options": {
-                        ...
-                    }
-                }
-            ]
-        }
+                ]
+            }
+        ]
     }
 }
 ```
