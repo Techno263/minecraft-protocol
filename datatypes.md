@@ -87,7 +87,7 @@ Example:
 }
 ```
 
-# Data Structures
+# Complex Datatypes
 
 ## Array
 
@@ -128,7 +128,7 @@ Example:
 | --- |
 | `type` |
 | `options.switch.type` |
-| `options.case` |
+| `options.cases` |
 
 ### Optional Keys
 
@@ -144,7 +144,7 @@ Example:
         "switch": {
             "type": "<switch_type>"
         },
-        "case": [
+        "cases": [
             {
                 "value": "<case1_value>",
                 "fields": [

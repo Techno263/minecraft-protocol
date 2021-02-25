@@ -417,7 +417,7 @@
                             "enum": "Boss Bar Color ID"
                         }
                     },
-                    "case": {
+                    "cases": {
                         "0": [
                             {
                                 "name": "Title",
