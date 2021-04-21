@@ -409,13 +409,16 @@
             },
             {
                 "name": "Action",
+                "type": "VarInt",
+                "options": {
+                    "enum": "Boss Bar Action"
+                }
+            },
+            {
                 "type": "Switch",
                 "options": {
                     "switch": {
-                        "type": "VarInt",
-                        "options": {
-                            "enum": "Boss Bar Color ID"
-                        }
+                        "field": "Action"
                     },
                     "cases": {
                         "0": [

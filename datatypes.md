@@ -127,22 +127,28 @@ Example:
 | Key |
 | --- |
 | `type` |
-| `options.switch.type` |
 | `options.cases` |
 
 ### Optional Keys
 
 | Key | Default Value |
 | --- | --- |
-| `name` | `None` |
+| `switch.field`* | `None` |
+| `switch.type`* | `None` |
+
+\* Either `switch.field` or `switch.type` have to be defined. If both are defined `switch.field` is used.
+
+`switch.field`'s value should be the name of a field defined before a switch type. This is to handle the scenarios where a field's value impacts what values come later in a packet
+
+`switch.type` is used in the case where a value only needs to be read, not stored. The type spcified by `switch.type` is read then the switch uses that value to evaluate its cases.
 
 ```json
 {
-    "name": "<object_name>",
     "type": "Switch",
     "options": {
         "switch": {
-            "type": "<switch_type>"
+            "field": "<field_name>",
+            "type": "<field_type>"
         },
         "cases": [
             {
